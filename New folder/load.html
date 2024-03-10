@@ -1,0 +1,33 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>loader</title>
+    <link rel="stylesheet" href="loader/loeadr-css/loader.css">
+ </head>
+ <body>
+    <div class="loader-container" style="--loader-dot-color: black; --loader-dot-size: 50px; --loader-dot-spacing: 25px;">
+        <div class="loader-dots">
+          <div class="loader-dot moving-dot"></div>
+          <div class="loader-dot fixed-dot"></div>
+          <div class="loader-dot fixed-dot"></div>
+          <div class="loader-dot fixed-dot"></div>
+        </div>
+        <svg xmlns="http://www.w3.org/2000/svg" version="1.1" style="display: none">
+          <defs>
+            <filter id="gooey">
+              <feGaussianBlur in="SourceGraphic" stdDeviation="10" result="blur" />
+              <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 21 -7" />
+            </filter>
+          </defs>
+        </svg>
+      </div>
+      <section>
+        <h1>Animated Button!</h1>
+        <button id="btn">
+          Click Me!
+        </button>
+      </section>
+ </body>
+ </html>

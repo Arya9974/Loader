@@ -1,0 +1,214 @@
+.loader-dots {
+    width: calc(
+      calc(var(--loader-dot-size, 16px) * 4) +
+        calc(calc(var(--loader-dot-spacing, 8px)) * 3)
+    );
+    height: var(--loader-dot-size, 16px);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    margin: auto;
+    filter: url("#gooey");
+  }
+  
+  .loader-dot {
+    width: var(--loader-dot-size, 16px);
+    height: var(--loader-dot-size, 16px);
+    border-radius: 50%;
+    background-color: var(--loader-dot-color, black);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+  }
+  
+  .loader-dot:first-child {
+    left: calc(
+      0px -
+        calc(
+          calc(var(--loader-dot-size, 16px) * 4) +
+            var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+        )
+    );
+  }
+  
+  .loader-dot:nth-child(2) {
+    left: calc(
+      0px -
+        calc(
+          var(--loader-dot-size, 16px) +
+            var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+        )
+    );
+  }
+  
+  .loader-dot:nth-child(3) {
+    left: calc(
+      var(--loader-dot-size, 16px) +
+        var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+    );
+  }
+  
+  .loader-dot:last-child {
+    left: calc(
+      calc(var(--loader-dot-size, 16px) * 4) +
+        var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+    );
+  }
+  
+  .moving-dot {
+    animation: moving-dot var(--loader-animation-duration, 2.5s) ease infinite;
+  }
+  
+  .fixed-dot {
+    animation: fixed-dot var(--loader-animation-duration, 2.5s) ease infinite;
+  }
+  
+  @keyframes moving-dot {
+    50% {
+      transform: translateX(
+        calc(
+          calc(var(--loader-dot-size, 16px) * 4) +
+            var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+        )
+      );
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  
+  @keyframes fixed-dot {
+    50% {
+      transform: translateX(
+        calc(
+          0px -
+            calc(
+              var(--loader-dot-size, 16px) +
+                var(--loader-dot-spacing, calc(var(--loader-dot-size, 16px) / 2))
+            )
+        )
+      );
+    }
+  
+    100% {
+      transform: translateX(0px);
+    }
+  }
+  @import url('https://fonts.googleapis.com/css?family=Lato:400,700');
+  section {
+    height: 100vh;
+    width: 100vw;
+    background-color: white;
+  }
+  
+  h1 {
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: "Lato", sans serif;
+    font-weight: 700;
+    font-size: 40px;
+    letter-spacing: 1px;
+    word-spacing: 10px;
+  }
+  
+  button {
+    cursor: pointer;
+    font-family: "Lato", sans serif;
+    font-weight: 700;
+    font-size: 20px;
+    display: block;
+    margin: 50px auto;
+    padding: 25px 80px;
+    background: #2c3e50;
+    color: white;
+    border-radius: 20px;
+    letter-spacing: 2px;
+    word-spacing: 5px;
+    position: relative;
+    border: none;
+    outline: none;
+    transition: all 0.3s;
+  }
+  
+  button:hover {
+    border: none;
+    outline: none;
+    box-shadow: 0px 5px 60px #aaa;
+    transform: translateY(-5px) scale(1.05);
+  }
+  
+  button:active {
+    border: none;
+    outline: none;
+    box-shadow: none;
+    transform: translateY(0) scale(0.95);
+  }
+  
+  button:after {
+    content: "";
+    border: 3px solid #34495e;
+    border-radius: 10px;
+    position : absolute;
+    bottom: -15%;
+    left: 50%;
+    transform: translate3d(-50%, 0, 0);
+    width: 40%;
+    transition: all 0.3s;
+  }
+  
+  button:hover:after {
+    width: 70%;
+  }
+  
+  button:active:after {
+    width: 40%;
+  }
+  
+  button:before {
+    content: "";
+    position: absolute;
+    border : 1px solid transparent;
+    top: -15%;
+    left: 10%;
+    width: 0;
+    border-radius: 40%;
+    transform: translate3d(-50%, 0, 0);
+  }
+  
+  button:hover:before {
+    border: 1px solid #34495e;
+    animation: backforth 1s ease-in-out;
+    animation-iteration-count: infinite;
+  }
+  
+
+  
+  @keyframes backforth {
+    0% {
+      left: 10%;
+      width: 0;
+    }
+    25% {
+      width: 50%;
+    }
+    50% {
+      left: 90%;
+      width: 0;
+    }
+    75% {
+      width: 50%;
+    }
+    100% {
+      left: 10%;
+      width: 0;
+    }
+  }
+  
+  
+    
